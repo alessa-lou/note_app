@@ -6,8 +6,11 @@
 </head>
 
 <body>
+  <p id = "test"></p>
   <script src="./lib/note.js"></script>
-  <p> test </p>
+  <script>
+  document.getElementById("test").innerHTML = note.text;
+  </script>
 </body>
 
 </html>
