@@ -12,7 +12,11 @@
   <p id = "notes"></p>
   <script src="./lib/note.js"></script>
   <script>
-    document.getElementById("submit").addEventListener("click", createNewNote);
+    document.getElementById("submit").addEventListener("click", function(clickEvent){
+      clickEvent.preventDefault();
+      createNewNote()
+      printEachNote(Note.all()[Note.all().length - 1])
+    });
 
     Note.all().forEach(printEachNote)
 
@@ -21,7 +25,7 @@
     };
 
     function createNewNote(){
-      new Note('dummy');
+      new Note(document.getElementById("newNote").value);
     };
   </script>
 </body>
