@@ -1,15 +1,28 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
 </head>
 
 <body>
-  <p id = "test"></p>
+  <h1>Welcome to your notes</h1>
+  <textarea id="newNote" rows = "3"cols = "80">Type your note in here</textarea>
+  <!-- <input type="text" id="newNote"></input> -->
+  <input type="submit" id="submit" value="Submit"></input>
+  <p id = "notes"></p>
   <script src="./lib/note.js"></script>
   <script>
-  document.getElementById("test").innerHTML = note.text;
+    document.getElementById("submit").addEventListener("click", createNewNote);
+
+    Note.all().forEach(printEachNote)
+
+    function printEachNote(note){
+      document.getElementById("notes").innerHTML += "<li>" + note.text.substring(0,20) + "</li>" + "<br>";
+    };
+
+    function createNewNote(){
+      new Note('dummy');
+    };
   </script>
 </body>
 
