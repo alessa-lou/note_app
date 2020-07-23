@@ -7,7 +7,6 @@
 <body>
   <h1>Welcome to your notes</h1>
   <textarea id="newNote" rows = "3"cols = "80">Type your note in here</textarea>
-  <!-- <input type="text" id="newNote"></input> -->
   <input type="submit" id="submit" value="Submit"></input>
   <p id = "notes"></p>
   <script src="./lib/note.js"></script>
@@ -20,8 +19,8 @@
 
     Note.all().forEach(printEachNote)
 
-    function printEachNote(note, index){
-      document.getElementById("notes").innerHTML += "<li>" + `<a href="#note${index}">` + note.text.substring(0,20) + "</a>" + "</li>" + "<br>";
+    function printEachNote(note){
+      document.getElementById("notes").innerHTML += "<li>" + `<a href="#${note.id}">` + note.text.substring(0,20) + "</a>" + "</li>" + "<br>";
     };
 
     function createNewNote(){
@@ -43,12 +42,15 @@
     };
 
     function showNote(note) {
-      var index = note.split("note")[1];
-      document.getElementById("notes").innerHTML = Note.all()[index].text;
-      document.getElementById("notes").addEventListener("click",function(clickEvent){
-        clickEvent.preventDefault();
-        Note.all().forEach(printEachNote)
-      });
+      // document.getElementById("notes").innerHTML = '<a href="#">' + Note.all()[note].text + '</a>'
+      document.getElementById("notes").innerHTML = Note.all()[note].text
+      var btn = document.createElement("BUTTON")
+      btn.innerHTML = "Go Back"
+      document.body.appendChild(btn);
+        btn.addEventListener("click", function())
+      // document.getElementById("notes").addEventListener("click", function(clickEvent){
+      //   clickEvent.preventDefault();
+      //   Note.all().forEach(printEachNote)})
     };
 
   </script>
