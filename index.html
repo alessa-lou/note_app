@@ -45,6 +45,10 @@
     function showNote(note) {
       var index = note.split("note")[1];
       document.getElementById("notes").innerHTML = Note.all()[index].text;
+      document.getElementById("notes").addEventListener("click",function(clickEvent){
+        clickEvent.preventDefault();
+        Note.all().forEach(printEachNote)
+      });
     };
 
   </script>
