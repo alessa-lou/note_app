@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(130, 194, 219);
+  color: white;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  text-decoration: none;  
+  margin: auto;
+  position: relative;
+  left: 30%;
+  margin-top: 100px;
+}
+

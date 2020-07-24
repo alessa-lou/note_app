@@ -28,7 +28,7 @@ function createButton(){
 }
 
 function printEachNote(note){
-  document.getElementById("notes").innerHTML += "<li>" + `<a href="#${note.id}">` + note.text.substring(0,20) + "</a>" + "</li>" + "<br>";
+  document.getElementById("notes").innerHTML += "<li>" + `<a href="#${note.id}">` + note.text.substring(0,20) + "..." + "</a>" + "</li>" + "<br>";
 };
 
 function createNewNote(){
