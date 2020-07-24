@@ -37,3 +37,9 @@ function printEachNote(note){
 function createNewNote(){
   new Note(document.getElementById("newNote").value);
 };
+
+function removeButton(){
+  console.log("do we get to removing the button?")
+  var btn = document.getElementById("button");
+    btn.parentNode.removeChild(btn);
+}

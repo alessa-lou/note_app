@@ -10,7 +10,6 @@
   <textarea id="newNote" rows = "3"cols = "80">Type your note in here</textarea>
   <input type="submit" id="submit" value="Submit"></input>
   <p id = "notes"></p>
-  <p id = "button"></p>
   <div id="capture">
   </div>
   <script src="./lib/note.js"></script>
@@ -31,8 +30,7 @@
     function displayChange(){
       console.log("do I make it in here?" + window.location.hash)
       if(window.location.hash == ""){
-        var btn = document.getElementById("button");
-        btn.parentNode.removeChild(btn);
+        removeButton();
         document.getElementById("notes").innerHTML = "";
         Note.all().forEach(printEachNote);
       }else{
