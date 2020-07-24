@@ -15,29 +15,15 @@
   <script src="./lib/note.js"></script>
   <script>
     document.getElementById("submit").addEventListener("click", function(clickEvent){
-      clickEvent.preventDefault();
       createNewNote()
       printEachNote(Note.all()[Note.all().length - 1])
       console.log("printing a new note" + window.location.hash)
-    });
+    }, false);
 
     window.addEventListener("hashchange",function(clickEvent){
-      clickEvent.preventDefault()
       console.log( "in the event listener" + window.location.hash)
       displayChange();
-    });
-
-    function displayChange(){
-      console.log("do I make it in here?" + window.location.hash)
-      if(window.location.hash == ""){
-        removeButton();
-        document.getElementById("notes").innerHTML = "";
-        Note.all().forEach(printEachNote);
-      }else{
-        showNoteForCurrentPage();
-      }
-    }
-    
+    }, false);
   </script>
 </body>
 

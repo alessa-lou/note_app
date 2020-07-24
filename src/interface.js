@@ -11,23 +11,18 @@ return location.hash.split("#")[1];
 };
 
 function showNote(note) {
-  // document.getElementById("notes").innerHTML = '<a href="#">' + Note.all()[note].text + '</a>'
   document.getElementById("notes").innerHTML = Note.all()[note].text
-  // notebook.get.text
+  // create button
   var btn = document.createElement("BUTTON");
   btn.innerHTML = "Go Back";
   btn.setAttribute("id","button")
   var capture = document.getElementById("capture");
   capture.appendChild(btn);
-  // document.getElementById("capture").appendChild(btn);
+
+  //trigger hash change
   btn.addEventListener("click", function(){
     window.location.hash = ""
   })
-  
-  // document.getElementById("notes").addEventListener("click", function(clickEvent){
-  //   clickEvent.preventDefault();
-  //   document.getElementById("notes").innerHTML = ""
-  //   Note.all().forEach(printEachNote)})
 };
 
 function printEachNote(note){
@@ -42,4 +37,15 @@ function removeButton(){
   console.log("do we get to removing the button?")
   var btn = document.getElementById("button");
     btn.parentNode.removeChild(btn);
+}
+
+function displayChange(){
+  console.log("do I make it in here?" + window.location.hash)
+  if(window.location.hash == ""){
+    removeButton();
+    document.getElementById("notes").innerHTML = "";
+    Note.all().forEach(printEachNote);
+  }else{
+    showNoteForCurrentPage();
+  }
 }
