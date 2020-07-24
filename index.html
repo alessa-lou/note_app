@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="./src/interface.js"></script>
 </head>
 
 <body>
@@ -12,51 +13,15 @@
   <script src="./lib/note.js"></script>
   <script>
     document.getElementById("submit").addEventListener("click", function(clickEvent){
-      clickEvent.preventDefault();
       createNewNote()
       printEachNote(Note.all()[Note.all().length - 1])
-    });
+      console.log("printing a new note" + window.location.hash)
+    }, false);
 
-    Note.all().forEach(printEachNote)
-
-    function printEachNote(note){
-      document.getElementById("notes").innerHTML += "<li>" + `<a href="#${note.id}">` + note.text.substring(0,20) + "</a>" + "</li>" + "<br>";
-    };
-
-    function createNewNote(){
-      new Note(document.getElementById("newNote").value);
-    };
-
-    makeUrlChangeShowNoteForCurrentPage();
-
-    function makeUrlChangeShowNoteForCurrentPage() {
-      window.addEventListener("hashchange", showNoteForCurrentPage);
-    };
-
-    function showNoteForCurrentPage() {
-      console.log(location.hash)
-    showNote(getNoteFromUrl(window.location));
-    };
-
-    function getNoteFromUrl(location) {
-    return location.hash.split("#")[1];
-    };
-
-    function showNote(note) {
-      // document.getElementById("notes").innerHTML = '<a href="#">' + Note.all()[note].text + '</a>'
-      document.getElementById("notes").innerHTML = Note.all()[note].text
-      // notebook.get.text
-      // var btn = document.createElement("BUTTON")
-      // btn.innerHTML = "Go Back"
-      // document.body.appendChild(btn);
-      //   btn.addEventListener("click", function())
-      document.getElementById("notes").addEventListener("click", function(clickEvent){
-        clickEvent.preventDefault();
-        // clear all content
-        document.getElementById("notes").innerHTML = ""
-        Note.all().forEach(printEachNote)})
-    };
-
+    window.addEventListener("hashchange",function(clickEvent){
+      console.log( "in the event listener" + window.location.hash)
+      displayChange();
+    }, false);
   </script>
 </body>
 
