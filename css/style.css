@@ -9,3 +9,26 @@ body {
   margin-top: 100px;
 }
 
+#submit {
+  margin: auto;
+  position: relative;
+  left: 20%;
+  margin-top: 10px;
+}  
+
+#notes {
+  font-family: Wingdings;
+}
+
+#MrBean{
+  margin: auto;
+  position: relative;
+  left: 13%;
+}
+
+#MrBean {overflow:hidden;margin-bottom: -4px;}
+
+#MrBean img {width: 100%;margin-left: 0px;position: relative;transition-property: all;transition-duration: 0.8s; transition-timing-function: ease-in-out;transition-delay: 0s;}
+#MrBean:hover img {transform: scale(1.2) rotate(2deg);}
+
+

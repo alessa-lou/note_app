@@ -4,6 +4,7 @@ function makeUrlChangeShowNoteForCurrentPage() {
 
 function showNoteForCurrentPage() {
   showNote(getNoteFromUrl(window.location));
+
 };
 
 function getNoteFromUrl(location) {
@@ -11,6 +12,7 @@ return location.hash.split("#")[1];
 };
 
 function showNote(note) {
+  document.getElementById("notes").style.fontFamily = "Futura,Trebuchet MS,Arial,sans-serif";
   document.getElementById("notes").innerHTML = Note.all()[note].text
   // create button
 };
@@ -33,11 +35,13 @@ function printEachNote(note){
 
 function createNewNote(){
   new Note(document.getElementById("newNote").value);
+  document.getElementById("newNote").value = "";
 };
 
 function removeButton(){
   var btn = document.getElementById("button");
-    btn.parentNode.removeChild(btn);
+  btn.parentNode.removeChild(btn);
+  document.getElementById("notes").style.fontFamily = "Wingdings"
 }
 
 function displayChange(){
