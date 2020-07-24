@@ -36,13 +36,11 @@ function createNewNote(){
 };
 
 function removeButton(){
-  console.log("do we get to removing the button?")
   var btn = document.getElementById("button");
     btn.parentNode.removeChild(btn);
 }
 
 function displayChange(){
-  // console.log("do I make it in here?" + window.location.hash)
   if(window.location.hash == ""){
     removeButton();
     document.getElementById("notes").innerHTML = "";
